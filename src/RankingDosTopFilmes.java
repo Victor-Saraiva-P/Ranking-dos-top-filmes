@@ -5,7 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class HttpGetExample {
+public class RankingDosTopFilmes {
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
         // Minha key de acesso a API
         String key = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNTg2YmYyNzE4MWJkMGU1ZTMzOGM0ZjQyNzg1OTNkZSIsInN1YiI6IjY2NjI1MDVkOGZmYjZiMjE0M2YyMzg3ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HeHFhJGkLyWsgaNLz8Yv173ANAxFMCGtrr4kN-zSSGw";
