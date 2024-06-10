@@ -3,19 +3,22 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.lang.model.util.SimpleElementVisitor14;
 
-public class Filmes {
+public class AtributosFilme {
     // PROPRIEDADES
     private List<String> titles;
     private List<String> posterPath;
     private List<String> voteAverage;
+    private List<String> year;
+
+    
 
     // metodos comuns
-    public Filmes(String json) {
+    public AtributosFilme(String json) {
         setTitles(pegarAtributo("title", json));
         setposterPath(pegarAtributo("poster_path", json));
         setvoteAverage(pegarAtributo("vote_average", json));
+        setYear(pegarAtributo("release_date", json));
     }
 
     public List<String> pegarAtributo(String propriedade, String json) {
@@ -50,8 +53,13 @@ public class Filmes {
             }
 
             expressao = expressao.replace("\"", ""); // retirar as aspas
-            expressao = expressao.replace(String.format("%s:", propriedade), ""); // retirar o inicion como ex:"title: o
-                                                                                  // filme", para apenas "o filme"
+            expressao = expressao.replace(String.format("%s:", propriedade), ""); // retirar o inicio como ex:"title: o filme", para apenas "o filme"
+
+            if(propriedade == "release_date") // se for o ano do filme pegar apenas os quatro primeiros char, que representam o ano do filme
+            {
+                expressao = expressao.substring(0, 4);
+            } 
+
             listaResultado.add(expressao);
         }
         System.out.println(listaResultado.size());
@@ -60,6 +68,14 @@ public class Filmes {
 
     public void mostrarTitulos() {
         List<String> listaResultado = getTitles();
+
+        for (String item : listaResultado) {
+            System.out.println(item);
+        }
+    }
+
+    public void mostrarAno() {
+        List<String> listaResultado = getYear();
 
         for (String item : listaResultado) {
             System.out.println(item);
@@ -107,4 +123,11 @@ public class Filmes {
         this.voteAverage = voteAverage;
     }
 
+    public List<String> getYear() {
+        return year;
+    }
+
+    public void setYear(List<String> year) {
+        this.year = year;
+    }
 }

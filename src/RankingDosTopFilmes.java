@@ -4,6 +4,7 @@ import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 
 
 public class RankingDosTopFilmes {
@@ -39,9 +40,11 @@ public class RankingDosTopFilmes {
             }
         }
 
-        Filmes filminhos = new Filmes(json);
-        //filminhos.mostrarPosters();
-        //filminhos.mostrarTitulos();
-        //filminhos.mostrarMedias();
+        AtributosFilme jsonTratado = new AtributosFilme(json);
+        List<String> titles = jsonTratado.getTitles();
+        List<String> urlImages  = jsonTratado.getposterPath();
+        List<String> rating = jsonTratado.getvoteAverage();
+        List<String> year = jsonTratado.getYear();
+
     }
 }
