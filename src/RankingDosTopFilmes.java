@@ -10,7 +10,7 @@ public class RankingDosTopFilmes {
 
         List<Filme> filmes = new JsonParser(jsoString).parse();
         // criar um html com os filmes
-        HTMLGenerator htmlArquivo = new HTMLGenerator("filmes.html");
+        HTMLGenerator htmlArquivo = new HTMLGenerator("index.html");
         htmlArquivo.generate(filmes);
     }
 }
