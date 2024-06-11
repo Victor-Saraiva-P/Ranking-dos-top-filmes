@@ -3,24 +3,23 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-public class AtributosFilme {
+public class JsonParser {
     // PROPRIEDADES
+    private String json;
     private List<String> titles;
     private List<String> posterPath;
     private List<String> voteAverage;
     private List<String> year;
 
-    
-
-    // metodos comuns
-    public AtributosFilme(String json) {
+    // metodo construtor
+    public JsonParser(String json) {
         setTitles(pegarAtributo("title", json));
-        setposterPath(pegarAtributo("poster_path", json));
-        setvoteAverage(pegarAtributo("vote_average", json));
+        setPosterPath(pegarAtributo("poster_path", json));
+        setVoteAverage(pegarAtributo("vote_average", json));
         setYear(pegarAtributo("release_date", json));
     }
 
+    // metodos comuns
     public List<String> pegarAtributo(String propriedade, String json) {
 
         String regex;
@@ -53,24 +52,33 @@ public class AtributosFilme {
             }
 
             expressao = expressao.replace("\"", ""); // retirar as aspas
-            expressao = expressao.replace(String.format("%s:", propriedade), ""); // retirar o inicio como ex:"title: o filme", para apenas "o filme"
+            expressao = expressao.replace(String.format("%s:", propriedade), ""); // retirar o inicio como ex:"title: o
+                                                                                  // filme", para apenas "o filme"
 
-            if(propriedade == "release_date") // se for o ano do filme pegar apenas os quatro primeiros char, que representam o ano do filme
+            if (propriedade == "release_date") // se for o ano do filme pegar apenas os quatro primeiros char, que
+                                               // representam o ano do filme
             {
                 expressao = expressao.substring(0, 4);
-            } 
+            }
 
             listaResultado.add(expressao);
         }
         return listaResultado;
     }
 
-    public void mostrarTitulos() {
-        List<String> listaResultado = getTitles();
+    public List<Filme> parse() {
+        List<String> titles = getTitles();
+        List<String> urlImages = getPosterPath();
+        List<String> rating = getVoteAverage();
+        List<String> year = getYear();
 
-        for (String item : listaResultado) {
-            System.out.println(item);
+        List<Filme> filmes = new ArrayList<>(); // armazenar dados em uma lista de filmes
+        for (int i = 0; i < titles.size(); i++) {
+            Filme filme = new Filme(titles.get(i), urlImages.get(i), Float.parseFloat(rating.get(i)),
+                    Integer.parseInt(year.get(i)));
+            filmes.add(filme);
         }
+        return filmes;
     }
 
     public void mostrarAno() {
@@ -82,7 +90,7 @@ public class AtributosFilme {
     }
 
     public void mostrarPosters() {
-        List<String> listaResultado = getposterPath();
+        List<String> listaResultado = getPosterPath();
 
         for (String item : listaResultado) {
             System.out.println(item);
@@ -90,14 +98,21 @@ public class AtributosFilme {
     }
 
     public void mostrarMedias() {
-        List<String> listaResultado = getvoteAverage();
+        List<String> listaResultado = getVoteAverage();
 
         for (String item : listaResultado) {
             System.out.println(item);
         }
     }
 
-    // metodos especiais
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
+    }
+
     public List<String> getTitles() {
         return titles;
     }
@@ -106,19 +121,19 @@ public class AtributosFilme {
         this.titles = titles;
     }
 
-    public List<String> getposterPath() {
+    public List<String> getPosterPath() {
         return posterPath;
     }
 
-    public void setposterPath(List<String> posterPath) {
+    public void setPosterPath(List<String> posterPath) {
         this.posterPath = posterPath;
     }
 
-    public List<String> getvoteAverage() {
+    public List<String> getVoteAverage() {
         return voteAverage;
     }
 
-    public void setvoteAverage(List<String> voteAverage) {
+    public void setVoteAverage(List<String> voteAverage) {
         this.voteAverage = voteAverage;
     }
 
@@ -129,4 +144,7 @@ public class AtributosFilme {
     public void setYear(List<String> year) {
         this.year = year;
     }
+
+    // metodos especiais
+
 }
