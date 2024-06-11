@@ -1,6 +1,4 @@
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -8,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RankingDosTopFilmes {
-    public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException {
+    public static void main(String[] args) throws Exception {
 
         String json = "";
         for (int pages = 1; pages < 13; pages++) // para eu poder percorrer varias paginas e juntar tudo num json
@@ -42,23 +40,23 @@ public class RankingDosTopFilmes {
             }
         }
 
+        // pegar elementos dos filmes para o objeto filme
         AtributosFilme jsonTratado = new AtributosFilme(json);
         List<String> titles = jsonTratado.getTitles();
         List<String> urlImages = jsonTratado.getposterPath();
         List<String> rating = jsonTratado.getvoteAverage();
         List<String> year = jsonTratado.getYear();
-        
+
         List<Filme> filmes = new ArrayList<>();
         for (int i = 0; i < titles.size(); i++) {
             Filme filme = new Filme(titles.get(i), urlImages.get(i), Float.parseFloat(rating.get(i)),
                     Integer.parseInt(year.get(i)));
             filmes.add(filme);
         }
-        
-        // Para verificar, vamos imprimir os títulos dos filmes
-        for (Filme filme : filmes) {
-            System.out.println(filme.getTitulo() + " - " + filme.getNota() + " - " + filme.getAno());
-        }
-        
+
+        // criar um html com os filmes
+        HTMLGenerator htmlArquivo = new HTMLGenerator("filmes.html");
+        htmlArquivo.generate(filmes);
+        html.close
     }
 }

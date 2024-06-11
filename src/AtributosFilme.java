@@ -47,7 +47,7 @@ public class AtributosFilme {
 
             if (propriedade == "poster_path") // verificar se trata dum link para colocar o hipertexto antes
             {
-                expressao = "https://image.tmdb.org/t/p/" + matcher.group();
+                expressao = "https://image.tmdb.org/t/p/w200" + matcher.group();
             } else {
                 expressao = (String) matcher.group();
             }

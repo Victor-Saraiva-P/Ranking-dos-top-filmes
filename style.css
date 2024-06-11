@@ -1,0 +1,28 @@
+body {
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.media {
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.media img {
+    width: 100px;
+    /* Ajuste conforme necessário */
+    height: auto;
+}
+
+.media-body h5 {
+    color: #007bff;
+}
+
+.media-body p {
+    color: #666;
+}
