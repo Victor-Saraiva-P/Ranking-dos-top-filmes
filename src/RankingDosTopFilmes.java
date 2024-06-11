@@ -57,6 +57,5 @@ public class RankingDosTopFilmes {
         // criar um html com os filmes
         HTMLGenerator htmlArquivo = new HTMLGenerator("filmes.html");
         htmlArquivo.generate(filmes);
-        html.close
     }
 }
