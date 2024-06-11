@@ -9,6 +9,7 @@ Este repositório é dedicado ao meu projeto de estudos em Java e Programação 
 
 ## Como Visualizar o Projeto
 Para poder visualizar a pagina web gerada bastar clicar aqui [Ranking dos Top Filmes](https://victor-saraiva-p.github.io/Ranking-dos-top-filmes/)
+## Como Executar o Projeto Localmente
 Para visualizar o projeto localmente, siga os passos abaixo:
 
 1. Certifique-se de ter o Java instalado em sua máquina. Você pode verificar isso executando `java -version` no terminal.
@@ -19,7 +20,3 @@ Para visualizar o projeto localmente, siga os passos abaixo:
 ## Contribuições
 
 Contribuições são sempre bem-vindas! Se você tem alguma sugestão para melhorar o projeto, sinta-se à vontade para criar um fork do repositório, fazer suas alterações e enviar um pull request. Estou aberto a melhorias no design, na eficiência do código e na adição de novas funcionalidades.
-
-## Licença
-
-Este projeto é distribuído sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
