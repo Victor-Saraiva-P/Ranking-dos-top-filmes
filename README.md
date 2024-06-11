@@ -1,4 +1,4 @@
-# Ranking dos Top Filmes
+# [Ranking dos Top Filmes](https://victor-saraiva-p.github.io/Ranking-dos-top-filmes/)
 
 Este repositório é dedicado ao meu projeto de estudos em Java e Programação Orientada a Objetos. O projeto consiste em um sistema que consulta a API TMDB para obter uma lista dos 240 melhores filmes, classificados de acordo com suas avaliações. Ao ser executado, o arquivo principal `RankingDosTopFilmes.java` gera um arquivo `index.html` que exibe os filmes listados do mais bem avaliado ao de pior avaliação.
 
@@ -8,8 +8,8 @@ Este repositório é dedicado ao meu projeto de estudos em Java e Programação 
 - **HTML/CSS**: Utilizados para estruturar e estilizar a apresentação dos filmes no arquivo `index.html` gerado pelo sistema.
 
 ## Como Visualizar o Projeto
-Para 
-Para visualizar o projeto, siga os passos abaixo:
+Para poder visualizar a pagina web gerada bastar clicar aqui [Ranking dos Top Filmes](https://victor-saraiva-p.github.io/Ranking-dos-top-filmes/)
+Para visualizar o projeto localmente, siga os passos abaixo:
 
 1. Certifique-se de ter o Java instalado em sua máquina. Você pode verificar isso executando `java -version` no terminal.
 2. Clone este repositório para sua máquina local.
