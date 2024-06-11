@@ -62,7 +62,6 @@ public class AtributosFilme {
 
             listaResultado.add(expressao);
         }
-        System.out.println(listaResultado.size());
         return listaResultado;
     }
 
